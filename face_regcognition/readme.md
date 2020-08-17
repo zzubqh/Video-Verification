@@ -1,9 +1,9 @@
-#项目说明
+# 项目说明
 人脸识别模块，用于人脸检测和识别
 # 人脸检测
 - 采用基于ssd的人脸检测网络，标记5个关键点。测试视频：test/video.mp4
 - 人脸检测demo：face_detect.py
-- 运行demo，下载预训练模型face_detect.pth[https://pan.baidu.com/s/1a_AxbkZwbCEash43ovouJQ]，提取码：9tef,存入weights文件夹下
+- 运行demo，下载预训练模型[face_detect.pth](https://pan.baidu.com/s/1a_AxbkZwbCEash43ovouJQ)，提取码：9tef,存入weights文件夹下
 - 然后运行：
 `python face_detect.py`
 - 返回的bbox已经还原到了输入图片尺寸下，在后续分类时可以直接使用
