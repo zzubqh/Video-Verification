@@ -16,7 +16,9 @@ ocr模块，识别图片中的身份证并结构化输出
 - 下载模型：https://pan.baidu.com/s/1vswXxRqtl01Uux5BPZC4gA 提取码：1lc6，将下载的文件存入weights文件夹下
 - idcard.py用于对识别出的身份证信息进行结构化识别
 - 运行ocr.py
-![image](https://github.com/zzubqh/Video-Verification/blob/master/ocr/test/idcard-demo.jpeg)
+
+![image](https://github.com/zzubqh/Video-Verification/blob/master/ocr/test/idcard-demo.jpeg) 
+识别结果
 ![image](https://github.com/zzubqh/Video-Verification/blob/master/ocr/test/ocr%E8%AF%86%E5%88%AB%E7%BB%93%E6%9E%9C.png)
 # 参考连接
 - https://github.com/opconty/pytorch_ctpn
