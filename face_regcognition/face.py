@@ -36,10 +36,10 @@ class Face(object):
         return img
 
     def _get_face_tensor(self, img, bbox):
-        left_x = int(bbox[0])
-        left_y = int(bbox[1])
-        right_x = int(bbox[2])
-        right_y = int(bbox[3])
+        left_x = int(bbox[0]) if bbox[0] > 0 else 0
+        left_y = int(bbox[1]) if bbox[1] > 0 else 0
+        right_x = int(bbox[2]) if bbox[2] < img.shape[1] else img.shape[1]
+        right_y = int(bbox[3]) if bbox[3] < img.shape[0] else img.shape[0]
         face_img = img[left_y:right_y, left_x:right_x]
         face_img = self.img_normalization(face_img)
         return face_img
