@@ -14,6 +14,6 @@
 - 运行face_demo.py，将自动打开笔记本的摄像头进行人脸识别，将代码中的img_dir修改成你的数据集路径，一张图片一个人，图片名为label
 - 计算相似度的时候只是简单的循环做余弦相似度，在数据很大的时候还需另行处理，此处只做演示使用
 # 演示demo
-![image](https://github.com/zzubqh/Video-Verification/blob/master/face_regcognition/result/face_demo.png)
+![image](https://github.com/zzubqh/Video-Verification/blob/master/face_regcognition/result/face_demo.jpg)
 # 参考项目
 - https://github.com/timesler/facenet-pytorch
