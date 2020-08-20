@@ -205,8 +205,7 @@ class InceptionResnetV1(nn.Module):
         super().__init__()
         # Set simple attributes
         self.classify = classify
-        self.num_classes = num_classes
-        self.is_train = is_train
+        self.num_classes = num_classes        
 
         # Define layers
         self.conv2d_1a = BasicConv2d(3, 32, kernel_size=3, stride=2)
@@ -246,7 +245,10 @@ class InceptionResnetV1(nn.Module):
         )
         self.block8 = Block8(noReLU=True)
         self.avgpool_1a = nn.AdaptiveAvgPool2d(1)
-        self.dropout = nn.Dropout(dropout_prob)
+        if is_train:
+            self.dropout = nn.Dropout(dropout_prob)
+        else:
+            self.dropout = nn.Dropout(0.0)
         self.last_linear = nn.Linear(1792, 512, bias=False)
         self.last_bn = nn.BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True)
         self.logits = nn.Linear(512, self.num_classes)
@@ -273,9 +275,8 @@ class InceptionResnetV1(nn.Module):
         x = self.mixed_7a(x)
         x = self.repeat_3(x)
         x = self.block8(x)
-        x = self.avgpool_1a(x)
-        if self.is_train:
-            x = self.dropout(x)
+        x = self.avgpool_1a(x)        
+        x = self.dropout(x)
         x = self.last_linear(x.view(x.shape[0], -1))
         x = self.last_bn(x)
         if self.classify:
